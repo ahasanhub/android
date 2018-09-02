@@ -1,0 +1,10 @@
+ext {
+    support_version = '27.1.1'
+    constraint_version = '1.0.2'
+    retrofit_version = '2.4.0'
+    rxjava_version='2.1.6'
+    rxandroid_version='2.0.1'
+    junit_version = '4.12'
+    testrunner_version='1.0.1'
+    espresso_version = '3.0.1'
+}
