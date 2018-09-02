@@ -1,11 +1,11 @@
 package com.learn2crack.retrofitkotlin.network
 
-import com.learn2crack.retrofitkotlin.model.Android
+
+import com.learn2crack.retrofitkotlin.model.Post
 import io.reactivex.Observable
 import retrofit2.http.GET
 
 interface RequestInterface {
-
-    @GET("api/android")
-    fun getData() : Observable<List<Android>>
+    @GET("posts")
+    fun getData() : Observable<List<Post>>
 }

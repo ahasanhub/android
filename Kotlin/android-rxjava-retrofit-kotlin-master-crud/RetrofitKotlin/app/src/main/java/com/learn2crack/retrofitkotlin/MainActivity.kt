@@ -11,16 +11,12 @@ import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import io.reactivex.android.schedulers.AndroidSchedulers
 
-import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
-import retrofit2.Retrofit
-
 import com.learn2crack.retrofitkotlin.network.RequestInterface
 import com.learn2crack.retrofitkotlin.adapter.DataAdapter
-import com.learn2crack.retrofitkotlin.model.Android
+import com.learn2crack.retrofitkotlin.model.Post
 import com.learn2crack.retrofitkotlin.network.RetrofitClient
 
-import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.content_main.*
 
 
 class MainActivity : AppCompatActivity(), DataAdapter.Listener {
@@ -29,7 +25,7 @@ class MainActivity : AppCompatActivity(), DataAdapter.Listener {
 
     private var mCompositeDisposable: CompositeDisposable? = null
 
-    private var mAndroidArrayList: ArrayList<Android>? = null
+    private var mAndroidArrayList: ArrayList<Post>? = null
 
     private var mAdapter: DataAdapter? = null
 
@@ -46,9 +42,9 @@ class MainActivity : AppCompatActivity(), DataAdapter.Listener {
 
     private fun initRecyclerView() {
 
-        rv_android_list.setHasFixedSize(true)
+        recyclerView1.setHasFixedSize(true)
         val layoutManager : RecyclerView.LayoutManager = LinearLayoutManager(this)
-        rv_android_list.layoutManager = layoutManager
+        recyclerView1.layoutManager = layoutManager
     }
 
     private fun loadJSON() {
@@ -62,12 +58,12 @@ class MainActivity : AppCompatActivity(), DataAdapter.Listener {
 
     }
 
-    private fun handleResponse(androidList: List<Android>) {
+    private fun handleResponse(androidList: List<Post>) {
 
         mAndroidArrayList = ArrayList(androidList)
         mAdapter = DataAdapter(mAndroidArrayList!!, this)
 
-        rv_android_list.adapter = mAdapter
+        recyclerView1.adapter = mAdapter
     }
 
     private fun handleError(error: Throwable) {
@@ -77,9 +73,9 @@ class MainActivity : AppCompatActivity(), DataAdapter.Listener {
         Toast.makeText(this, "Error ${error.localizedMessage}", Toast.LENGTH_SHORT).show()
     }
 
-    override fun onItemClick(android: Android) {
+    override fun onItemClick(post: Post) {
 
-        Toast.makeText(this, "${android.name} Clicked !", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, "${post.title} Clicked !", Toast.LENGTH_SHORT).show()
     }
 
     override fun onDestroy() {

@@ -7,22 +7,22 @@ import android.view.ViewGroup
 import android.graphics.Color
 
 import com.learn2crack.retrofitkotlin.R
-import com.learn2crack.retrofitkotlin.model.Android
+import com.learn2crack.retrofitkotlin.model.Post
 
 import kotlinx.android.synthetic.main.recycler_view_row.view.*
 
-class DataAdapter (private val dataList : ArrayList<Android>, private val listener : Listener) : RecyclerView.Adapter<DataAdapter.ViewHolder>() {
+class DataAdapter (private val dataList : ArrayList<Post>, private val listener : Listener) : RecyclerView.Adapter<DataAdapter.ViewHolder>() {
 
     interface Listener {
 
-        fun onItemClick(android : Android)
+        fun onItemClick(post : Post)
     }
 
-    private val colors : Array<String> = arrayOf("#EF5350", "#EC407A", "#AB47BC", "#7E57C2", "#5C6BC0", "#42A5F5")
+    //private val colors : Array<String> = arrayOf("#EF5350", "#EC407A", "#AB47BC", "#7E57C2", "#5C6BC0", "#42A5F5")
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
-        holder.bind(dataList[position], listener, colors, position)
+        holder.bind(dataList[position], listener,  position)
     }
 
     override fun getItemCount(): Int = dataList.count()
@@ -36,14 +36,12 @@ class DataAdapter (private val dataList : ArrayList<Android>, private val listen
 
     class ViewHolder(view : View) : RecyclerView.ViewHolder(view) {
 
-        fun bind(android: Android, listener: Listener, colors : Array<String>, position: Int) {
+        fun bind(post: Post, listener: Listener,  position: Int) {
+            itemView.txtTitle.text = post.title
+            itemView.txtBody.text = StringBuilder(post.body.substring(0,20)).append("...").toString()
+            //itemView.setBackgroundColor(Color.parseColor(colors[position % 6]))
 
-            itemView.tv_name.text = android.name
-            itemView.tv_version.text = android.version
-            itemView.tv_api_level.text = android.apiLevel
-            itemView.setBackgroundColor(Color.parseColor(colors[position % 6]))
-
-            itemView.setOnClickListener{ listener.onItemClick(android) }
+            itemView.setOnClickListener{ listener.onItemClick(post) }
         }
     }
 }

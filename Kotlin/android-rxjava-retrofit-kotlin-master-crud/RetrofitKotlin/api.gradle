@@ -1,4 +1,5 @@
+//https://www.learn2crack.com/2017/11/retrofit-and-rxjava-in-kotlin.html
 ext{
-    BASE_API_URL = "https://learn2crack-json.herokuapp.com/"
+    BASE_API_URL = "https://jsonplaceholder.typicode.com/"
     API_KEY = "11be4da4ee3042b7804c9f0be0f8bcef"
 }
