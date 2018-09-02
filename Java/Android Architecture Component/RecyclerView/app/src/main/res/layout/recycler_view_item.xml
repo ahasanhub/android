@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data  class="SportDataBinding">
+        <variable
+            name="modelView"
+            type="com.contextidea.recycleview.SportViewModel"/>
+        <variable
+            name="handler"
+            type="com.contextidea.recycleview.FabImgClickHandler"/>
+    </data>
+    <RelativeLayout
+        android:layout_width="wrap_content" android:layout_height="match_parent"
+        android:padding="16dp">
+        <TextView
+            android:id="@+id/sport_name"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_alignParentStart="true"
+            android:gravity="center_vertical"
+            android:text="@{modelView.sportName}"/>
+        <ImageButton
+            android:id="@+id/img_fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="5dp"
+            app:imgSrc="@{modelView.imgSrcId}"
+            android:onClick="@{(v)->handler.onFabImgClick()}"/>
+    </RelativeLayout>
+</layout>

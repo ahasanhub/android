@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">AccountKitSample</string>
+    <string name="facebook_app_id">444985472563667</string>
+    <string name="account_kit_client_token">2d41fea94a4a0df2d287ba6f70d99e6d</string>
+</resources>
