@@ -3,7 +3,5 @@
     <color name="colorPrimary">#17A589</color>
     <color name="colorPrimaryDark">#117864</color>
     <color name="colorAccent">#1ABC9C</color>
-    <color name="white">#fff</color>
-    <color name="clear">#0fff</color>
     <color name="item_bg">#D1F2EB</color>
 </resources>

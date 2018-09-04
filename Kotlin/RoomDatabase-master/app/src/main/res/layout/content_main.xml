@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:padding="10dp"
-        android:text="Kotlin Idea"
+        android:text="@string/applicant_name"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="40sp" />
 
@@ -27,7 +27,7 @@
         tools:ignore="MissingConstraints" />
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/recyclerView1"
+        android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/ll"
