@@ -85,6 +85,10 @@ class MainActivity : AppCompatActivity(), DataAdapter.Listener {
         Toast.makeText(this, "${post.title} Clicked !", Toast.LENGTH_SHORT).show()
     }
 
+    override fun onItemDeleteClick() {
+        Toast.makeText(this,"Item is deleted!",Toast.LENGTH_SHORT)
+    }
+
     override fun onDestroy() {
         super.onDestroy()
         mCompositeDisposable?.clear()

@@ -1,28 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
     <android.support.v7.widget.CardView
-        android:layout_margin="5dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
-        <LinearLayout
-            android:padding="10dp"
-            android:orientation="vertical"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp">
+
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <TextView
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+            android:layout_height="wrap_content"
+            android:background="@color/item_bg"
+            android:padding="5dp">
+
+            <android.support.v7.widget.AppCompatTextView
                 android:id="@+id/txtTitle"
-                android:text="Name"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-            <TextView
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                android:text="Occupation"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@+id/ibDelete"
+                android:layout_toStartOf="@+id/ibDelete"
+                android:padding="5dp"
+                android:text="Govind"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="18sp"
+                tools:ignore="HardcodedText" />
+
+            <android.support.v7.widget.AppCompatTextView
                 android:id="@+id/txtBody"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtTitle"
+                android:layout_toLeftOf="@+id/ibDelete"
+                android:layout_toStartOf="@+id/ibDelete"
+                android:padding="5dp"
+                android:text="Siliguri, Darjeeling"
+                android:textColor="@color/colorPrimary"
+                android:textSize="14sp"
+                tools:ignore="HardcodedText" />
+
+            <android.support.v7.widget.AppCompatImageButton
+                android:id="@+id/ibDelete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@android:drawable/ic_menu_delete" />
+        </RelativeLayout>
     </android.support.v7.widget.CardView>
+
 </LinearLayout>

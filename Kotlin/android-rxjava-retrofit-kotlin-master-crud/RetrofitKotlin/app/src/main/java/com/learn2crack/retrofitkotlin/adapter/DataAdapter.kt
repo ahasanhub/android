@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.graphics.Color
 
 import com.learn2crack.retrofitkotlin.R
+import com.learn2crack.retrofitkotlin.R.id.ibDelete
 import com.learn2crack.retrofitkotlin.model.Post
 
 import kotlinx.android.synthetic.main.recycler_view_row.view.*
@@ -16,6 +17,7 @@ class DataAdapter (private val dataList : ArrayList<Post>, private val listener 
     interface Listener {
 
         fun onItemClick(post : Post)
+        fun onItemDeleteClick()
     }
 
     //private val colors : Array<String> = arrayOf("#EF5350", "#EC407A", "#AB47BC", "#7E57C2", "#5C6BC0", "#42A5F5")
@@ -42,6 +44,7 @@ class DataAdapter (private val dataList : ArrayList<Post>, private val listener 
             //itemView.setBackgroundColor(Color.parseColor(colors[position % 6]))
 
             itemView.setOnClickListener{ listener.onItemClick(post) }
+            itemView.ibDelete.setOnClickListener{listener.onItemDeleteClick()}
         }
     }
 }
