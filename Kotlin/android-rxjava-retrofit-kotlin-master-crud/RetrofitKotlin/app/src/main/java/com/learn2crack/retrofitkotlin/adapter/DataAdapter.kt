@@ -17,7 +17,7 @@ class DataAdapter (private val dataList : ArrayList<Post>, private val listener 
     interface Listener {
 
         fun onItemClick(post : Post)
-        fun onItemDeleteClick()
+        fun onItemDeleteClick(post:Post)
     }
 
     //private val colors : Array<String> = arrayOf("#EF5350", "#EC407A", "#AB47BC", "#7E57C2", "#5C6BC0", "#42A5F5")
@@ -25,6 +25,7 @@ class DataAdapter (private val dataList : ArrayList<Post>, private val listener 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
         holder.bind(dataList[position], listener,  position)
+        holder.itemView.ibDelete.setOnClickListener{listener.onItemDeleteClick(dataList[position])}
     }
 
     override fun getItemCount(): Int = dataList.count()
@@ -44,7 +45,7 @@ class DataAdapter (private val dataList : ArrayList<Post>, private val listener 
             //itemView.setBackgroundColor(Color.parseColor(colors[position % 6]))
 
             itemView.setOnClickListener{ listener.onItemClick(post) }
-            itemView.ibDelete.setOnClickListener{listener.onItemDeleteClick()}
+            //itemView.ibDelete.setOnClickListener{listener.onItemDeleteClick(post)}
         }
     }
 }

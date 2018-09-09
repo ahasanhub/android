@@ -1,8 +1,10 @@
 package com.learn2crack.retrofitkotlin
 
+import android.content.DialogInterface
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AlertDialog
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.util.Log
@@ -85,9 +87,24 @@ class MainActivity : AppCompatActivity(), DataAdapter.Listener {
         Toast.makeText(this, "${post.title} Clicked !", Toast.LENGTH_SHORT).show()
     }
 
-    override fun onItemDeleteClick() {
-        Toast.makeText(this,"Item is deleted!",Toast.LENGTH_SHORT)
+    override fun onItemDeleteClick(post: Post) {
+        //Toast.makeText(this,"Item is deleted!",Toast.LENGTH_SHORT)
+        showAlertDelete(post)
     }
+    private fun showAlertDelete(post: Post) {
+        val alertDialog = AlertDialog.Builder(this)
+        alertDialog.setTitle("Confirm Delete...")
+        alertDialog.setMessage("Are you sure you want delete this?")
+        alertDialog.setIcon(android.R.drawable.ic_delete)
+        alertDialog.setPositiveButton("YES", DialogInterface.OnClickListener { dialog, which ->
+            //userRecyclerViewModel!!.deleteItem(u)
+        })
+        alertDialog.setNegativeButton("NO", DialogInterface.OnClickListener { dialog, which ->
+            dialog.cancel()
+        })
+        alertDialog.show()
+    }
+
 
     override fun onDestroy() {
         super.onDestroy()
